@@ -17,12 +17,25 @@ cookbook_file 'default_attributes.rb' do
   mode 0755
 end
 
-git RSEM  do
-  repository 'https://github.com/deweylab/RSEM.git'
-  revision 'master'
-  action :checkout
+##########################################################
+
+package ['zlib-devel'] do
+  action :install
 end
 
+include_recipe 'r'
+
+git node['RSEM']['dir'] do
+  repository 'https://github.com/deweylab/RSEM.git'
+  revision node['RSEM']['version']
+  action :sync
+end
+
+#find ../RSEM_master -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \;
+
+execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \;" do
+  cwd node['RSEM']['install'] + '/bin'
+end
 
 log 'Finished RSEM recipe'
 
