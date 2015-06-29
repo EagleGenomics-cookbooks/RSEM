@@ -1,9 +1,16 @@
 require 'spec_helper'
+require_relative './spec_helper'
 
-describe 'RSEM::default' do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
-  it 'does something' do
-    skip 'Replace this with meaningful tests'
-  end
+# Required by serverspec
+set :backend, :exec
+
+pseudo_node = PseudoNode.new
+
+puts 'RSEM version = ' + pseudo_node.default['RSEM']['version']
+
+describe file("#{pseudo_node.default['RSEM']['dir']}") do
+  it { should be_directory }
 end
+
+
+

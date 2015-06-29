@@ -31,10 +31,22 @@ git node['RSEM']['dir'] do
   action :sync
 end
 
-#find ../RSEM_master -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \;
+execute "make" do
+  cwd node['RSEM']['dir']
+end
 
-execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \;" do
+execute "make ebseq" do
+  cwd node['RSEM']['dir']
+end
+
+execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \\;" do
   cwd node['RSEM']['install'] + '/bin'
+end
+
+['WHAT_IS_NEW','rsem_perl_utils.pm'].each do |binFile|
+  execute "ln -s #{node['RSEM']['dir']}/#{binFile} ." do
+    cwd node['RSEM']['install'] + '/bin'
+  end
 end
 
 log 'Finished RSEM recipe'
