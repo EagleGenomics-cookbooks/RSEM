@@ -35,10 +35,6 @@ execute "make" do
   cwd node['RSEM']['dir']
 end
 
-execute "make ebseq" do
-  cwd node['RSEM']['dir']
-end
-
 execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -type f -exec ln -s {} . \\;" do
   cwd node['RSEM']['install'] + '/bin'
 end

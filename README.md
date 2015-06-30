@@ -17,6 +17,10 @@ Requirements
 * RHEL 6.5
 
 
+Notes
+=====
+The executables are all placed in /usr/local/bin so this needs to be in your path. 
+
 Usage
 =====
 
@@ -52,6 +56,7 @@ limitations under the License.
 ToDo
 ====
     
+The 'make ebseq' command is not working. 
 Package install for Ubuntu.
 Set paths/environment.
 Tests.

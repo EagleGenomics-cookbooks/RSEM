@@ -15,6 +15,6 @@ class PseudoNode
     eval IO.read(config_path)
     
     @default = default
+    # default hash has all the values now.
   end
-  # default hash has all the values now.
 end
