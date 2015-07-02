@@ -4,15 +4,11 @@ require_relative './spec_helper'
 # Required by serverspec
 set :backend, :exec
 
-pseudo_node = PseudoNode.new
+puts 'RSEM version ENV = ' + ENV['RSEM_DIR']
 
-puts 'RSEM version = ' + pseudo_node.default['RSEM']['version']
-
-describe file("#{pseudo_node.default['RSEM']['dir']}") do
+describe file("#{ENV['RSEM_DIR']}") do
   it { should be_directory }
 end
-
-set :path, '/usr/local/bin/:$PATH'
 
 ['rsem-bam2readdepth','rsem-tbam2gbam','rsem-prepare-reference'].each do |fileExecutable|
 

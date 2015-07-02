@@ -8,13 +8,9 @@ log 'Starting RSEM recipe'
 
 include_recipe 'build-essential'
 
-# Placed here for use by serverspec
-cookbook_file 'default_attributes.rb' do
-  path '/tmp/default_attributes.rb'
-  action :create
-  owner 'root'
-  group 'root'
-  mode 0755
+# here for use by serverspec
+magic_shell_environment 'RSEM_DIR' do
+  value node['RSEM']['dir']
 end
 
 ##########################################################
