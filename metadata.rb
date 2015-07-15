@@ -12,5 +12,4 @@ depends 'build-essential'
 depends 'magic_shell'
 
 depends 'r'
-
-
+depends 'git'
