@@ -38,7 +38,7 @@ kitchen destroy default-centos65
 
 Attributes
 ==========
-
+default['RSEM']['version'] =  'v1.2.20'
     
 License and Authors
 ===================
