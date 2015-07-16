@@ -37,7 +37,7 @@ git node['RSEM']['dir'] do
   action :sync
 end
 
-execute "make" do
+execute 'make' do
   cwd node['RSEM']['dir']
 end
 
@@ -48,14 +48,11 @@ execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -typ
 end
 
 # These also need to be in PATH to run
-['WHAT_IS_NEW','rsem_perl_utils.pm'].each do |binFile|
+['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |binFile|
   execute "ln -s #{node['RSEM']['dir']}/#{binFile} ." do
     cwd node['RSEM']['install'] + '/bin'
   end
 end
-<<<<<<< HEAD
 
 ##########################################################
 ##########################################################
-=======
->>>>>>> 951fa2de315bd318ae799f4801fac49c6c2fd8db

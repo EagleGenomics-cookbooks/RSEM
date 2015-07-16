@@ -4,29 +4,25 @@ require_relative './spec_helper'
 # Required by serverspec
 set :backend, :exec
 
-describe file("#{ENV['RSEM_DIR']}") do
+describe file({ENV['RSEM_DIR']) do
   it { should be_directory }
 end
 
-['rsem-bam2readdepth','rsem-tbam2gbam','rsem-prepare-reference'].each do |fileExecutable|
-
-  describe command("which #{fileExecutable}") do
+['rsem-bam2readdepth', 'rsem-tbam2gbam', 'rsem-prepare-reference'].each do |file_executable|
+  describe command("which #{file_executable}") do
     its(:exit_status) { should eq 0 }
   end
-  
-  filePath = ENV['RSEM_INSTALL'] + '/bin/' + fileExecutable
-  
-  describe file(filePath) do
+
+  file_path = ENV['RSEM_INSTALL'] + '/bin/' + file_executable
+  describe file(file_path) do
     it { should be_file }
     it { should be_executable }
   end
-end 
+end
 
-['WHAT_IS_NEW','rsem_perl_utils.pm'].each do |file|
-
-  filePath = ENV['RSEM_INSTALL'] + '/bin/' + file
-  
-  describe file(filePath) do
+['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |file|
+  file_path = ENV['RSEM_INSTALL'] + '/bin/' + file
+  describe file(file_path) do
     it { should be_file }
   end
 end
