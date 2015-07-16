@@ -4,7 +4,7 @@ require_relative './spec_helper'
 # Required by serverspec
 set :backend, :exec
 
-describe file({ENV['RSEM_DIR']) do
+describe file(ENV['RSEM_DIR']) do
   it { should be_directory }
 end
 
@@ -18,6 +18,18 @@ end
     it { should be_file }
     it { should be_executable }
   end
+end
+
+describe command("rsem-bam2readdepth") do
+  its(:stdout) { should contain('Usage: ') }
+end
+
+describe command("rsem-tbam2gbam") do
+  its(:stdout) { should contain('Usage: ') }
+end
+
+describe command("rsem-prepare-reference") do
+  its(:stderr) { should contain('Invalid number of arguments') }
 end
 
 ['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |file|
