@@ -1,9 +1,9 @@
 # RSEM
 
-RNA-Seq by Expectation-Maximization
-
 Description
 ===========
+
+This Cookbook to installs RSEM, RNA-Seq by Expectation-Maximization
 
 http://deweylab.biostat.wisc.edu/rsem/
 
@@ -16,23 +16,29 @@ Requirements
 * Centos 6.5
 * RHEL 6.5
 
-
 Notes
 =====
 The executables are all placed in /usr/local/bin so this needs to be in your path. 
 
 Usage
 =====
+Simply include the recipe wherever you would like it installed, such as a run list (recipe[RSEM]) or a cookbook (include_recipe 'RSEM')
 
-To test the recipe we use chef test kitchen
 
-kitchen converge default-centos65 | tee kitchen.log
+## Testing
+To test the recipe we use chef test kitchen:
+
+kitchen converge default-centos65 
 
 kitchen login default-centos65
 
 kitchen verify default-centos65
 
 kitchen destroy default-centos65
+
+Attributes
+==========
+
     
 License and Authors
 ===================

@@ -4,13 +4,21 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-log 'Starting RSEM recipe'
-
 include_recipe 'build-essential'
+include_recipe 'git'
 
+##########################################################
 # here for use by serverspec
 magic_shell_environment 'RSEM_DIR' do
   value node['RSEM']['dir']
+end
+
+magic_shell_environment 'RSEM_VERSION' do
+  value node['RSEM']['version']
+end
+
+magic_shell_environment 'RSEM_INSTALL' do
+  value node['RSEM']['install']
 end
 
 ##########################################################
@@ -18,6 +26,8 @@ end
 package ['zlib-devel'] do
   action :install
 end
+
+##########################################################
 
 include_recipe 'r'
 
@@ -41,5 +51,5 @@ end
   end
 end
 
-log 'Finished RSEM recipe'
-
+##########################################################
+##########################################################
