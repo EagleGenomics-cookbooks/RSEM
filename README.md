@@ -17,6 +17,8 @@ Requirements
 
 Notes
 =====
+The 'make ebseq' command is not working. This is an issue with the software itself.
+
 The executables are all placed in /usr/local/bin so this needs to be in your path. 
 
 Usage
@@ -68,6 +70,3 @@ limitations under the License.
 ToDo
 ====
     
-The 'make ebseq' command is not working. 
-Set paths/environment.
-Tests.
