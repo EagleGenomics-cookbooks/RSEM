@@ -3,7 +3,7 @@
 Description
 ===========
 
-This Cookbook to installs RSEM, RNA-Seq by Expectation-Maximization
+This Cookbook installs RSEM, RNA-Seq by Expectation-Maximization
 
 http://deweylab.biostat.wisc.edu/rsem/
 
@@ -14,7 +14,6 @@ Requirements
 ## Platform:
 
 * Centos 6.5
-* RHEL 6.5
 
 Notes
 =====
