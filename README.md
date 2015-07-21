@@ -37,7 +37,11 @@ kitchen destroy default-centos65
 
 Attributes
 ==========
-default['RSEM']['version'] =  'v1.2.20'
+
+See attributes/default.rb for the install flavour:
+
+    default['RSEM']['version'] =  'v1.2.20'
+    
     
 License and Authors
 ===================
@@ -65,6 +69,5 @@ ToDo
 ====
     
 The 'make ebseq' command is not working. 
-Package install for Ubuntu.
 Set paths/environment.
 Tests.
