@@ -20,15 +20,15 @@ end
   end
 end
 
-describe command("rsem-bam2readdepth") do
+describe command('rsem-bam2readdepth') do
   its(:stdout) { should contain('Usage: ') }
 end
 
-describe command("rsem-tbam2gbam") do
+describe command('rsem-tbam2gbam') do
   its(:stdout) { should contain('Usage: ') }
 end
 
-describe command("rsem-prepare-reference") do
+describe command('rsem-prepare-reference') do
   its(:stderr) { should contain('Invalid number of arguments') }
 end
 
