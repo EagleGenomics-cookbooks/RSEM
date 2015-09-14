@@ -4,7 +4,7 @@ maintainer_email 'chef@eaglegenomics.com'
 license 'Apache2'
 description 'Installs/Configures RSEM'
 long_description 'Installs/Configures RSEM'
-version '1.0.0'
+version '1.0.1'
 
 supports 'centos', '= 6.5'
 

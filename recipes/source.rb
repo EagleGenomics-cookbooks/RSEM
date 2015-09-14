@@ -49,7 +49,7 @@ end
 
 # These also need to be in PATH to run
 ['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |binFile|
-  execute "ln -s #{node['RSEM']['dir']}/#{binFile} ." do
+  execute "ln -sf #{node['RSEM']['dir']}/#{binFile} ." do
     cwd node['RSEM']['install'] + '/bin'
   end
 end
