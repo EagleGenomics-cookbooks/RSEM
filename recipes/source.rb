@@ -4,6 +4,14 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
+##########################################################
+
+package ['zlib-devel', 'make', 'tar'] do
+  action :install
+end
+
+##########################################################
+
 include_recipe 'build-essential'
 include_recipe 'git'
 
@@ -19,12 +27,6 @@ end
 
 magic_shell_environment 'RSEM_INSTALL' do
   value node['RSEM']['install']
-end
-
-##########################################################
-
-package ['zlib-devel'] do
-  action :install
 end
 
 ##########################################################
