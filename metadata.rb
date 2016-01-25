@@ -1,9 +1,9 @@
 name 'RSEM'
-maintainer 'The Authors'
+maintainer 'Eagle Genomics'
 maintainer_email 'chef@eaglegenomics.com'
-license 'Apache2'
+license 'apache2'
 description 'Installs/Configures RSEM'
-long_description 'Installs/Configures RSEM'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.0.2'
 
 supports 'centos', '= 6.5'
