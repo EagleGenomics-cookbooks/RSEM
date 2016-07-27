@@ -50,9 +50,9 @@ execute "find #{node['RSEM']['dir']} -maxdepth 1 -name 'rsem-*' -executable -typ
 end
 
 # These also need to be in PATH to run
-['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |binFile|
-  link "/usr/local/bin/#{binFile}" do
-    to "#{node['RSEM']['dir']}/#{binFile}"
+['WHAT_IS_NEW', 'rsem_perl_utils.pm'].each do |bin_file|
+  link "/usr/local/bin/#{bin_file}" do
+    to "#{node['RSEM']['dir']}/#{bin_file}"
   end
 end
 
