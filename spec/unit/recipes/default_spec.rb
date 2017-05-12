@@ -12,7 +12,9 @@ describe 'RSEM::default' do
       runner = ChefSpec::ServerRunner.new
       runner.converge(described_recipe)
     end
-
+    before do
+      stub_command('R --version | grep -q 3.0.1').and_return(true)
+    end
     it 'converges successfully' do
       chef_run # This should not raise an error
     end
